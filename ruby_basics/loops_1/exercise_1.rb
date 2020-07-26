@@ -1,3 +1,4 @@
 loop do
-  puts 'Just keep printing...'
+  puts 'Prints only once!'
+  break
 end
