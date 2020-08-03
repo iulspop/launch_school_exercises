@@ -5,3 +5,7 @@ numbers = {
 }
 
 numbers.each { |k, v| puts "#{k}: #{v}" }
+
+half_numbers = numbers.map { |key, number| number / 2 }
+
+p half_numbers
