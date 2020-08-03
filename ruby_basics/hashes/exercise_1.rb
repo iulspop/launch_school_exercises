@@ -8,4 +8,4 @@ car[:year] = 2003
 
 car.delete :mileage
 
-puts car
+puts car[:color]
