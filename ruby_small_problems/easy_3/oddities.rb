@@ -1,5 +1,5 @@
 def oddities(array)
-  array.each_with_object([]).with_index { |(el, arr), i| arr << el if i.even? }
+  array.reject.with_index { |_, i| i.odd? }
 end
 
 p oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
