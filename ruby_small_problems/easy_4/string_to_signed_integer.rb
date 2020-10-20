@@ -4,9 +4,8 @@ def string_to_integer(string)
 end
 
 def string_to_signed_integer(string)
-  is_negative = string[0].match? '-'
   integer = string_to_integer(string.gsub(/[-+]/, ''))
-  is_negative ? -integer : integer
+  string[0].match? '-' ? -integer : integer
 end
 
 p string_to_signed_integer('4321') == 4321
