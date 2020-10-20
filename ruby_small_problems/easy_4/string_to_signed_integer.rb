@@ -5,7 +5,7 @@ end
 
 def string_to_signed_integer(string)
   integer = string_to_integer(string.gsub(/[-+]/, ''))
-  string[0].match? '-' ? -integer : integer
+  string[0].match?('-') ? -integer : integer
 end
 
 p string_to_signed_integer('4321') == 4321
