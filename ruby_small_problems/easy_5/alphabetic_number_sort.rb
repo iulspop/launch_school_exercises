@@ -11,7 +11,7 @@ array.sort_by []
 WORDS = %w[zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen]
 
 def alphabetic_number_sort(numbers)
-  numbers.sort_by { |number| WORDS[number] }
+  numbers.sort { |num1, num2| WORDS[num1] <=> WORDS[num2] }
 end
 
 p alphabetic_number_sort((0..19).to_a) == [
