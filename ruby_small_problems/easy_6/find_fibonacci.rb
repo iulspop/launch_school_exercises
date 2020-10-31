@@ -53,14 +53,14 @@ start = Time.now
 find_fibonacci_index_by_length.call(10000) == 47847
 finish = Time.now
 
-puts "With statefulness"
+puts "With memoization"
 p (finish - start).round(2)
 
 start = Time.now
 find_fibonacci_index_by_length.call(10000) == 47847
 finish = Time.now
 
-puts "With statefulness second time"
+puts "With memoization second time"
 p (finish - start).round(2)
 
 
@@ -76,12 +76,12 @@ start = Time.now
 find_fibonacci_index_by_length_simple(10000) == 47847
 finish = Time.now
 
-puts "Without statefulness first time"
+puts "Without memoization first time"
 p (finish - start).round(2)
 
 start = Time.now
 find_fibonacci_index_by_length_simple(10000) == 47847
 finish = Time.now
 
-puts "Without statefulness second time"
+puts "Without memoization second time"
 p (finish - start).round(2)
