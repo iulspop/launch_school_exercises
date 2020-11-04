@@ -29,8 +29,7 @@ end
 
 def max_rotation(number)
   digits = number.digits.reverse
-  [*2..digits.size].reverse
-  .each { |n| digits = rotate_rightmost_digits(digits, n) }
+  digits.size.downto(2) { |n| digits = rotate_rightmost_digits(digits, n) }
   digits.join.to_i
 end
 
