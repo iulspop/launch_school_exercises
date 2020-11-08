@@ -24,12 +24,10 @@ then check is empty?
 
 =end
 
-def balanced?(string)
-  string = string.delete "^()"
-  while string.match?(/\(.*?\)/)
-    string.gsub!(/\((.*?)\)/, '\1')
-  end
-  string.empty?
+def balanced?(str)
+  str = str.delete '^()'
+  while str.gsub!('()', ''); end
+  str.empty?
 end
 
 p balanced?('What (is) this?') == true
