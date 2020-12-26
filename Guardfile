@@ -1,5 +1,6 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
+notification :libnotify, display_message: false
 
 ## Uncomment and set this to only include directories you want to watch
 directories %w(lib test) \

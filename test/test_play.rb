@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../lib/play'
 
-class TestMutatingTransposeMethod < MiniTest::Test
+class TestTransposeMethod < MiniTest::Test
   def test_transpose_3x3_array
     matrix = [
       [1, 2, 3],
@@ -11,20 +11,58 @@ class TestMutatingTransposeMethod < MiniTest::Test
 
     assert_equal(
       [[1, 3, 6],[2, 4, 7],[3, 5, 8]],
-      transpose!(matrix)
+      transpose(matrix)
     )
   end
 
-  def test_transpose_3x3_array
+  def test_transpose_4x3_array
     matrix = [
       [1, 5, 8],
       [4, 7, 2],
-      [3, 9, 6]
+      [3, 9, 6],
+      [6, 2, 8]
     ]
 
     assert_equal(
-      [[1, 4, 3], [5, 7, 9], [8, 2, 6]],
-      transpose!(matrix)
+      [[1, 4, 3, 6], [5, 7, 9, 2], [8, 2, 6, 8]],
+      transpose(matrix)
+    )
+  end
+
+  def test_transpose_1x4_array
+    matrix = [[1, 2, 3, 4]]
+
+    assert_equal(
+      [[1], [2], [3], [4]],
+      transpose(matrix)
+    )
+  end
+
+  def test_transpose_1x1_array
+    matrix = [[1]]
+
+    assert_equal(
+      [[1]],
+      transpose(matrix)
+    )
+  end
+
+  def test_transpose_3x5_array
+    matrix = [
+      [1, 2, 3, 4, 5],
+      [4, 3, 2, 1, 0],
+      [3, 7, 8, 6, 2]
+    ]
+
+    assert_equal(
+      [
+      [1, 4, 3],
+      [2, 3, 7],
+      [3, 2, 8],
+      [4, 1, 6],
+      [5, 0, 2]
+    ],
+      transpose(matrix)
     )
   end
 end

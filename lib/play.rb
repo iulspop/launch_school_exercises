@@ -22,14 +22,22 @@ loop through matrix rows
     shift and push to respective holding array column
   end
 end
-loop through holding array
-  loop through column
-    shift and push to respective row in old array
-
-return old array
+return holding array
 
 =end
 
-def transpose!(matrix)
-  
+def transpose(matrix)
+  n_rows    = matrix.size
+  n_columns = matrix[0].size
+  holding_matrix = []
+  n_columns.times { holding_matrix << [] }
+
+  n_rows.times do |row_index|
+    n_columns.times do |column_index|
+      column_element = matrix[row_index].shift
+      holding_matrix[column_index] << column_element
+    end
+  end
+
+  holding_matrix
 end
