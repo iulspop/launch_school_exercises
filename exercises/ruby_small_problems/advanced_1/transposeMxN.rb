@@ -28,18 +28,15 @@ return holding array
 
 def transpose(matrix)
   n_rows    = matrix.size
-  n_columns = matrix[0].size
-  holding_matrix = []
-  n_columns.times { holding_matrix << [] }
+  n_columns = matrix.first.size
+  result = []
 
-  n_rows.times do |row_index|
-    n_columns.times do |column_index|
-      column_element = matrix[row_index].shift
-      holding_matrix[column_index] << column_element
-    end
+  n_columns.times do |column_index|
+    new_row = n_rows.times.map { |row_index| matrix[row_index][column_index] }
+    result << new_row
   end
 
-  holding_matrix
+  result
 end
 
 require 'minitest/autorun'
