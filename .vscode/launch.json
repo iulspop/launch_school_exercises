@@ -8,7 +8,7 @@
       "name": "Debug Local File",
       "type": "Ruby",
       "request": "launch",
-      "program": "${workspaceRoot}/test/test_play.rb"
+      "program": "${workspaceRoot}/exercises/ruby_small_problems/advanced_1/test_merge_sort.rb"
     }
   ]
 }
