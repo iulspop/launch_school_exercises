@@ -26,7 +26,8 @@ match and replace
 def rotate_letter_13(char, min_ord: 97, max_ord: 122)
   ord = char.ord + 13
   if ord > max_ord
-    ord = (ord % (max_ord + 1)) + min_ord
+    positions_over_max = ord % max_ord
+    ord = min_ord + (positions_over_max - 1)
   end
   ord.chr
 end
