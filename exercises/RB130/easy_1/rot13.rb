@@ -27,7 +27,8 @@ def rotate_letter_13(char, min_ord: 97, max_ord: 122)
   ord = char.ord + 13
   if ord > max_ord
     positions_over_max = ord % max_ord
-    ord = min_ord + (positions_over_max - 1)
+    positions_over_min = positions_over_max - 1
+    ord = min_ord + positions_over_min
   end
   ord.chr
 end
