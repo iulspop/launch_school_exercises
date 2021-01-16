@@ -23,16 +23,18 @@ algo
 match and replace
 =end
 
-def rot13_char(char, min_ord, max_ord)
+def rotate_letter_13(char, min_ord: 97, max_ord: 122)
   ord = char.ord + 13
-  ord = (ord % (max_ord + 1)) + min_ord if ord > max_ord
+  if ord > max_ord
+    ord = (ord % (max_ord + 1)) + min_ord
+  end
   ord.chr
 end
 
 def rot13(string)
   string
-  .gsub(/[a-z]/) { |char| rot13_char(char, 97, 122) }
-  .gsub(/[A-Z]/) { |char| rot13_char(char, 65, 90)  }
+  .gsub(/[a-z]/) { |char| rotate_letter_13(char) }
+  .gsub(/[A-Z]/) { |char| rotate_letter_13(char, min_ord: 65, max_ord: 90) }
 end
 
 pioneers = <<-DOC
