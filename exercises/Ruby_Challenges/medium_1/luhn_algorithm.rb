@@ -4,7 +4,7 @@ class Luhn
   end
 
   def addends
-
+    digits = number.digits.reverse
   end
 
   private
