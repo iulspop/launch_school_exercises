@@ -6,11 +6,7 @@ class Luhn
   def self.create(number)
     number = number * 10
     loop do
-      if Luhn.new(number).valid?
-        return number
-      else
-        number = number + 1
-      end
+      Luhn.new(number).valid? ? (return number) : (number = number + 1)
     end
   end
 
@@ -33,7 +29,7 @@ class Luhn
   end
 
   def valid?
-    checksum.digits.first == 0
+    checksum % 10 == 0
   end
 
   private
