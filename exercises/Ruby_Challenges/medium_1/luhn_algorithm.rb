@@ -21,6 +21,10 @@ class Luhn
     addends.sum
   end
 
+  def valid?
+    checksum.digits.first == 0
+  end
+
   private
 
   attr_reader :number

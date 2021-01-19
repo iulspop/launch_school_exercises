@@ -18,19 +18,16 @@ class LuhnTest < Minitest::Test
   end
 
   def test_checksum_again
-    skip
     luhn = Luhn.new(201_773)
     assert_equal 21, luhn.checksum
   end
 
   def test_invalid_number
-    skip
     luhn = Luhn.new(738)
     refute luhn.valid?
   end
 
   def test_valid_number
-    skip
     luhn = Luhn.new(8_739_567)
     assert luhn.valid?
   end
