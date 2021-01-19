@@ -8,13 +8,11 @@ class LuhnTest < Minitest::Test
   end
 
   def test_too_large_addend
-    skip
     luhn = Luhn.new(8631)
     assert_equal [7, 6, 6, 1], luhn.addends
   end
 
   def test_checksum
-    skip
     luhn = Luhn.new(4913)
     assert_equal 22, luhn.checksum
   end

@@ -17,6 +17,10 @@ class Luhn
     end
   end
 
+  def checksum
+    addends.sum
+  end
+
   private
 
   attr_reader :number
