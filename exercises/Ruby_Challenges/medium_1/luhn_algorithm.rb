@@ -6,7 +6,7 @@ class Luhn
   def self.create(number)
     number = number * 10
     loop do
-      Luhn.new(number).valid? ? (return number) : (number = number + 1)
+      new(number).valid? ? (return number) : (number = number + 1)
     end
   end
 
