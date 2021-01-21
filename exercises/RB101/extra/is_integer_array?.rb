@@ -12,6 +12,19 @@ end
 
 =end
 
+# test cases
+p is_int_array([]) == true
+p is_int_array([1, 2, 3, 4]) == true
+p is_int_array([-11, -12, -13, -14]) == true
+p is_int_array([1.0, 2.0, 3.0]) == true
+p is_int_array([1, 2, nil]) == false
+p is_int_array(nil) == false
+p is_int_array("") == false
+p is_int_array([nil]) == false
+p is_int_array([1.0, 2.0, 3.0001]) == false
+p is_int_array(["-1"]) == false
+
+
 def is_int_array(arr)
   return false unless arr.is_a? Array
   arr.empty? || arr.all? { |num| num.is_a?(Numeric) && num.floor == num }
@@ -29,15 +42,3 @@ def is_int_array(arr)
   return arr.all? { |n| n.class == Integer || n == n.to_i }
   false
 end
-
-# test cases
-p is_int_array([]) == true
-p is_int_array([1, 2, 3, 4]) == true
-p is_int_array([-11, -12, -13, -14]) == true
-p is_int_array([1.0, 2.0, 3.0]) == true
-p is_int_array([1, 2, nil]) == false
-p is_int_array(nil) == false
-p is_int_array("") == false
-p is_int_array([nil]) == false
-p is_int_array([1.0, 2.0, 3.0001]) == false
-p is_int_array(["-1"]) == false
