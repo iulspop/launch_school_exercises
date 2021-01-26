@@ -46,10 +46,10 @@ class Triangle
     sum_of_two_sides = []
     length_of_third_side = []
     sides.each_with_index do |side, index|
-      two_sides = sides.reject.with_index do |_, other_index|
+      two_other_sides = sides.reject.with_index do |_, other_index|
         other_index == index
       end
-      sum_of_two_sides << two_sides.sum
+      sum_of_two_sides << two_other_sides.sum
       length_of_third_side << side
     end
     sum_of_two_sides.zip(length_of_third_side).all? { |(sum, side)| sum >= side }
