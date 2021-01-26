@@ -21,7 +21,7 @@ loop n - 1 to 1 steps of two
 def diamond(n)
   output_line = lambda { |size| puts ('*' * size).center(n) }
   1.step(n, 2, &output_line)
-  (n - 2).step(1, -2, &output_liney)
+  (n - 2).step(1, -2, &output_line)
 end
 
 def diamond(n)

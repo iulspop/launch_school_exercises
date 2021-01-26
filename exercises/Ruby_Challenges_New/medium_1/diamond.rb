@@ -35,36 +35,31 @@ algo:
   
 
 =end
-
+require "pry"
 class Diamond
   def self.make_diamond(letter)
-    letters_and_sizes, max_size = setup(letter)
+    letters_and_sizes, diamond_width, add_line = setup(letter)
 
-    diamond = ""
-    add_line = Proc.new do |(letter, size)|
-      line = (letter * size).center(max_size, " ") + "\n"
-      diamond += line
-    end
-  
-    letters_and_sizes.each(&add_line)
-    letters_and_sizes.reverse[1..-1].each(&add_line)
+    diamond = letters_and_sizes.each_with_object("", &add_line)
+    diamond = letters_and_sizes.reverse[1..-1].each_with_object(diamond, &add_line)
 
     remove_letters_in_the_middle(diamond)
   end
 
   def self.setup(letter)
     letters = ('A'..letter).to_a
-    number_of_letters = letters.size
-    max_size = 1 + ((number_of_letters - 1) * 2)
-    sizes = (1..max_size).to_a.select(&:odd?)
+    diamond_width = 1 + ((letters.size - 1) * 2)
+    sizes = (1..diamond_width).to_a.select(&:odd?)
+    add_line = Proc.new do |(letter, size), diamond|
+      line = (letter * size).center(diamond_width, " ") + "\n"
+      diamond << line
+    end
     letters_and_sizes = letters.zip(sizes)
-    [letters_and_sizes, max_size]
+    [letters_and_sizes, diamond_width, add_line]
   end
   
   def self.remove_letters_in_the_middle(diamond)
-    diamond.gsub(/(?<=[ \n][A-Z])(.+)(?=[A-Z][ \n])/) do |match|
-      " " * match.size
-    end
+    diamond.gsub(/(?<=[A-Z])(.)(?=[A-Z])/, ' ')
   end
 
   private_class_method :setup, :remove_letters_in_the_middle
