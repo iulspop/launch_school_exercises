@@ -23,9 +23,8 @@ sides can be float or integer
 
 class Triangle
   def initialize(*sides)
-    raise ArgumentError if sides.any? { |side| side <= 0 }
-    raise ArgumentError if !valid_proportions?(sides)
     @sides = sides
+    raise ArgumentError unless valid?
   end
 
   def kind
@@ -37,6 +36,11 @@ class Triangle
   private
 
   attr_reader :sides
+
+  def valid?
+    return false if sides.any? { |side| side <= 0 }
+    valid_proportions?(sides)s
+  end
 
   def valid_proportions?(sides)
     sum_of_two_sides = []
