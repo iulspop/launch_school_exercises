@@ -24,7 +24,7 @@ sides can be float or integer
 class Triangle
   def initialize(*sides)
     @sides = sides
-    raise ArgumentError unless valid?
+    raise ArgumentError, "One or more lengths is invalid." unless valid?
   end
 
   def kind
