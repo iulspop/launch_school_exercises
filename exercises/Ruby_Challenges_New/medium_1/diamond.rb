@@ -34,7 +34,6 @@ algo:
   
 
 =end
-require "pry"
 class Diamond
   def self.make_diamond(letter)
     letters_and_widths, diamond_width = setup(letter)
