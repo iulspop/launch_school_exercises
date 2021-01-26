@@ -39,7 +39,8 @@ class Diamond
   def self.make_diamond(letter)
     letters_and_widths, diamond_width = setup(letter)
 
-    diamond = letters_and_widths.each_with_object("") do |(letter, size), diamond|
+    diamond = ''
+    letters_and_widths.each do |(letter, size)|
       line = (letter * size).center(diamond_width, " ") + "\n"
       diamond << line
     end
