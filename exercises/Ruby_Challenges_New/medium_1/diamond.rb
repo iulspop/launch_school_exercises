@@ -1,4 +1,3 @@
-require 'minitest/autorun'
 # https://launchschool.com/exercises/9fee1e86
 
 =begin
@@ -41,7 +40,6 @@ class Diamond
     letters_and_sizes, add_line = setup(letter)
 
     diamond = letters_and_sizes.each_with_object("", &add_line)
-    diamond = letters_and_sizes.reverse[1..-1].each_with_object(diamond, &add_line)
 
     remove_letters_in_the_middle(diamond)
   end
@@ -55,6 +53,7 @@ class Diamond
       diamond << line
     end
     letters_and_sizes = letters.zip(sizes)
+    letters_and_sizes.push(*letters_and_sizes.reverse[1..-1])
     [letters_and_sizes, add_line]
   end
   
