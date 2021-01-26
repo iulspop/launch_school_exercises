@@ -38,7 +38,7 @@ algo:
 require "pry"
 class Diamond
   def self.make_diamond(letter)
-    letters_and_sizes, diamond_width, add_line = setup(letter)
+    letters_and_sizes, add_line = setup(letter)
 
     diamond = letters_and_sizes.each_with_object("", &add_line)
     diamond = letters_and_sizes.reverse[1..-1].each_with_object(diamond, &add_line)
@@ -55,7 +55,7 @@ class Diamond
       diamond << line
     end
     letters_and_sizes = letters.zip(sizes)
-    [letters_and_sizes, diamond_width, add_line]
+    [letters_and_sizes, add_line]
   end
   
   def self.remove_letters_in_the_middle(diamond)
