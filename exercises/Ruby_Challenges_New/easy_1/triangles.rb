@@ -39,7 +39,7 @@ class Triangle
 
   def valid?
     return false if sides.any? { |side| side <= 0 }
-    valid_proportions?(sides)s
+    valid_proportions?(sides)
   end
 
   def valid_proportions?(sides)
