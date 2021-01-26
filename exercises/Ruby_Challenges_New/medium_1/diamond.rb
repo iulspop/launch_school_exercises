@@ -46,9 +46,11 @@ class Diamond
 
   def self.setup(letter)
     letters = ('A'..letter).to_a
+
     diamond_width = 1 + ((letters.size - 1) * 2)
-    widths = (1..diamond_width).to_a.select(&:odd?)
-    top_half = letters.zip(widths)
+    letter_widths = (1..diamond_width).to_a.select(&:odd?)
+
+    top_half = letters.zip(letter_widths)
     bottom_half = top_half.reverse[1..-1]
     letters_and_widths = top_half.push(*bottom_half)
 
