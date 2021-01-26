@@ -51,7 +51,7 @@ class Diamond
 
     remove_letters_in_the_middle(diamond)
   end
-  
+
   def self.setup(letter)
     letters = ('A'..letter).to_a
     number_of_letters = letters.size
@@ -66,4 +66,6 @@ class Diamond
       " " * match.size
     end
   end
+
+  private_class_method :setup, :remove_letters_in_the_middle
 end
