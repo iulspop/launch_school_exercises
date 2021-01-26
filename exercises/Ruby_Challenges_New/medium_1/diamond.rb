@@ -40,8 +40,8 @@ class Diamond
     letters_and_widths, diamond_width = setup(letter)
 
     diamond = ''
-    letters_and_widths.each do |(letter, size)|
-      line = (letter * size).center(diamond_width, " ") + "\n"
+    letters_and_widths.each do |(letter, width)|
+      line = (letter * width).center(diamond_width, " ") + "\n"
       diamond << line
     end
 
