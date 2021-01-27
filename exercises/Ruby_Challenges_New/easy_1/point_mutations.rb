@@ -18,19 +18,15 @@ class DNA
   end
 
   def hamming_distance(other_strand)
-    count_point_mutations(sort_strands(other_strand))
+    count_point_mutations(other_strand)
   end
 
   private
 
   attr_reader :strand
 
-  def sort_strands(other_strand)
-    [strand, other_strand].sort_by(&:size)
-  end
-
-  def count_point_mutations(sorted_strands)
-    short_strand, long_strand = sorted_strands
+  def count_point_mutations(other_strand)
+    short_strand, long_strand = [strand, other_strand].sort_by(&:size)
     point_mutations = 0
     short_strand.length.times do |index|
       point_mutations += 1 if short_strand[index] != long_strand[index]
