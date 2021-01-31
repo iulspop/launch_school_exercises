@@ -1,5 +1,9 @@
+class Play
+  def self.hi
+    puts 'hello'
+  end
 
-[1, 1, 1]
-[1, 1, 1, 1]
-[1, 1, 1, 1, 1]
-[1, 1, 1, 1, 1, 1]
+  # private_class_method :hi
+end
+
+Play.hi
