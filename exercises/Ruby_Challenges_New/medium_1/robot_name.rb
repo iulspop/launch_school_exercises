@@ -10,14 +10,9 @@ class Robot
   end
 
   def name
-    if @name.nil?
-      loop do
-        @name = rand_name
-        break unless @@names.include?(name)
-      end
-
-      @@names << @name
-    end
+    return @name if @name
+    @name = rand_name while @@names.include?(@name) || @name.nil?
+    @@names << @name
     @name
   end
 
