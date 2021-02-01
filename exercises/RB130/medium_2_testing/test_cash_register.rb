@@ -15,10 +15,21 @@ class TestCashRegister < Minitest::Test
   end
 
   def test_change_returns_difference_of_amount_paid_and_cost
-    register = CashRegister.new(0)
+    register = CashRegister.new(100)
     transaction = Transaction.new(20)
     transaction.amount_paid = 25
 
     assert_equal 5, register.change(transaction)
+  end
+
+  def test_give_receipts_displays_correct_receipt
+    item_cost = 20
+    register = CashRegister.new(100)
+    transaction = Transaction.new(item_cost)
+    out, err = capture_io do
+      register.give_receipt(transaction)
+    end
+
+    assert_equal "You've paid $20.\n", out
   end
 end
