@@ -62,3 +62,52 @@ Tregehqr Oynapu
 DOC
 
 puts rot13(pioneers)
+
+    # string.gsub(/[a-zA-Z]/) { |char| rotate_letter(char, positions) }
+
+  # def self.rotate_letter(letter, positions)
+  #   if letter.upcase == letter
+  #     min_ord = 65
+  #     max_ord = 90
+  #   end
+  #   if letter.downcase == letter
+  #     min_ord = 97
+  #     max_ord = 122
+  #   end
+
+  #   rotate_ordinal(letter.ord, positions, min_ord, max_ord).chr
+  # end
+
+  # def self.rotate_ordinal(ord, positions, min_ord, max_ord)
+  #   ord += positions
+  #   if ord > max_ord
+  #     positions_over_max = ord % max_ord
+  #     positions_over_min = positions_over_max - 1
+  #     ord = min_ord + positions_over_min
+  #   end
+  #   ord
+  # end
+
+  # private_class_method :rotate_letter, :rotate_ordinal
+
+  # class Cipher
+  #   def self.rotate(string, positions)
+  #     string
+  #       .gsub(/[a-z]/) { |char| rotate_letter(char, positions) }
+  #       .gsub(/[A-Z]/) do |char|
+  #       rotate_letter(char, positions, min_ord: 65, max_ord: 90)
+  #     end
+  #   end
+  
+  #   def rotate_letter(char, positions, min_ord: 97, max_ord: 122)
+  #     ord = char.ord + positions
+  #     if ord > max_ord
+  #       positions_over_max = ord % max_ord
+  #       positions_over_min = positions_over_max - 1
+  #       ord = min_ord + positions_over_min
+  #     end
+  #     ord.chr
+  #   end
+  
+  #   private_class_method :rotate_letter
+  # end
