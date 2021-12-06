@@ -180,3 +180,133 @@ console.log(snail([[1, 2], [3, 4]]));  // [1, 2, 4, 3]
 console.log(snail([[1, 2, 3], [4, 5, 6], [7, 8, 9]])); // [1, 2, 3, 6, 9, 8, 7, 4, 5]
 console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]));
 // [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]
+
+/*
+
+Given an n * n array, return the array elements arranged from outermost elements to the middle element, traveling clockwise.
+
+array = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+         
+snail(array) #=> [1,2,3,6,9,8,7,4,5]
+For better understanding, please follow the numbers of the next array consecutively:
+
+array = [[1,2,3],
+         [8,9,4],
+         [7,6,5]]
+snail(array) #=> [1,2,3,4,5,6,7,8,9]
+
+This image will illustrate things more clearly:
+https://www.haan.lu/files/2513/8347/2456/snail.png
+
+NOTE: The idea is not sort the elements from the lowest value to the highest; the idea is to traverse the 2-d array in a clockwise snailshell pattern.
+
+NOTE 2: The 0x0 (empty matrix) is represented as an empty array inside an array [[]]. => []
+
+
+
+Code Problem:
+https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1
+*/
+
+/*
+3 X 3
+5 X 5
+300 x 300
+
+Problem:
+n x n array? - nested array
+
+outermost elements to middle element, traveling clockwise
+---->
+    |
+|-> |
+|   |
+--- v
+
+input: 1 argument, nested arrays
+output: single array
+
+examples:
+
+array = [
+  [1,2,3],
+  [8,9,4],
+  [7,6,5]
+]
+
+snail(array) #=> [1,2,3,4,5,6,7,8,9]
+[0, 0],
+[0, 1],
+[0, 2],
+[1, 2]
+[2, 2]
+[2, 1],
+[2, 0]
+
+[1, 0]
+[1, 1]
+
+
+[
+  [1 , 2,  3,  4],
+  [12, 13, 14, 5], 1
+  [11, 16, 15, 6], 2
+  [10, 9,  8,  7]  3
+]
+snail(array) => [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+
+
+Mental Model:
+- make copy of argument
+    (deleting elements)
+
+input: array n x n
+
+length
+
+left = 0
+top = 0
+right = length - 1
+bottom = length - 1
+
+loop until ???
+  - top 
+      iterate from `left` to `right` |i|
+        push(arr[top][i])
+        top++
+  - right 
+      iterate from `top` to `bottom` |i|
+        push(arr[right][i])
+        right++
+  - bottom
+      iterate from `right` to `left` |i|
+        push(arr[bottom][i])
+        bottom++
+  - left
+      iterate from `bottom` to `top` |i|
+        push(arr[left][i])
+        left++ 
+  
+  - grab last element of each other array (right)
+  - once last array reached, go left from remaing element of last array (bottom)
+  - then grab first element of every array going upwards until it's not first array (left)
+end
+
+- simply, put each elemnt into final array starting from begginging to end
+[[5,4],
+ [2,1]
+
+
+
+results.push(arr[0][0])
+
+
+Data Structures:
+arrays for iteration
+
+Alogorithm:
+variable: snailArr: empty array
+push first nested array into snailArr
+*/
